@@ -2,12 +2,12 @@ const isProd = process.env.NODE_ENV === 'production'
 const webpack = require('webpack')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const {resolve} = require('path')
-module.export = {
+module.exports = {
   entry: {
     main: './src/main.tsx'
   },
   output: {
-    file: 'js/[name].[contenthash:4].js',
+    filename: 'js/[name].[hash:4].js',
     path: resolve(__dirname, 'dist'),
     publicPath: '/'
   },
@@ -23,8 +23,18 @@ module.export = {
       template: './index.html'
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      // some define
     })
   ],
-  mode: isProd? 'production' : 'development'
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
+  },
+  mode: isProd ? 'production' : 'development',
+  devServer: isProd ? {} : {
+    hot: true,
+    inline: true,
+    open: true,
+    contentBase: '/',
+    port: 8087
+  }
 }
