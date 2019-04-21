@@ -2,6 +2,8 @@ const isProd = process.env.NODE_ENV === 'production'
 const webpack = require('webpack')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const {resolve} = require('path')
+const {rules: DevRules, plugins: devPlugins} = require('./build/dev.config')
+const {rules: prodRules, plugins: prodPlugins} = require('./build/prod.config')
 module.exports = {
   entry: {
     main: './src/main.tsx'
@@ -13,9 +15,18 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /.(j|t)sx?$/,
+      test: /\.(j|t)sx?$/,
       loader: 'babel-loader'
-    }]
+    }, {
+      test: /\.(jpg|png|git|ttf|woff)$/,
+      use: [{
+        loader: 'url-loader',
+        options: {
+          limit: 8192
+        }
+      }]
+    },
+    ...(isProd ? prodRules : DevRules)]
   },
   plugins: [
     new htmlWebpackPlugin({
@@ -24,7 +35,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       // some define
-    })
+    }),
+    ...(isProd ? prodPlugins : devPlugins)
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx']

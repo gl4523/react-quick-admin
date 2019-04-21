@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
-
+import {Button} from 'element-react'
+import './app.scss'
 class App extends Component {
   render() {
     return (
-      <h2>App</h2>
+      <div>
+        <h2>App</h2>
+        <Button type="primary">button</Button>
+      </div>
     )
   }
 }
