@@ -1,12 +1,17 @@
 import React, {Component} from 'react'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import {Button} from 'element-react'
+import Login from './pages/login'
 import './app.scss'
 class App extends Component {
   render() {
     return (
-      <div>
-        <h2>App</h2>
-        <Button type="primary">button</Button>
+      <div className='box-container'>
+        <BrowserRouter basename=''>
+          <Switch>
+            <Route path='/login' component={Login} />
+          </Switch>
+        </BrowserRouter>
       </div>
     )
   }

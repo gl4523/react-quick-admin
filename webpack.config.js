@@ -1,6 +1,7 @@
 const isProd = process.env.NODE_ENV === 'production'
 const webpack = require('webpack')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const copyPlugin = require('copy-webpack-plugin')
 const {resolve} = require('path')
 const {rules: DevRules, plugins: devPlugins} = require('./build/dev.config')
 const {rules: prodRules, plugins: prodPlugins} = require('./build/prod.config')
@@ -36,6 +37,10 @@ module.exports = {
     new webpack.DefinePlugin({
       // some define
     }),
+    new copyPlugin([{
+      from: resolve(__dirname, 'static'),
+      to: resolve(__dirname, 'dist/static')
+    }]),
     ...(isProd ? prodPlugins : devPlugins)
   ],
   resolve: {
@@ -47,6 +52,9 @@ module.exports = {
     inline: true,
     open: true,
     contentBase: '/',
-    port: 8087
+    port: 8087,
+    historyApiFallback: {
+      index: '/'
+    }
   }
 }
