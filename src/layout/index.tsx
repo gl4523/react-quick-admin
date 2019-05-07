@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import NavBar from '../components/NavBar'
 import BreadCrumb from '../components/Breadcrumb'
 import {} from 'element-react'
+import Form from '../template/Form'
 import './index.scss'
 class Layout extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Layout extends Component {
             <BreadCrumb />
           </div>
           <div className="route-cell scroll-container">
+          
           </div>
         </div>
       </div>
