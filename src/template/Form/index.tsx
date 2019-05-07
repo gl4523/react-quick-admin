@@ -1,10 +1,15 @@
 import React, {Component} from 'react'
 import {Form} from 'element-react'
 import './index.scss'
-
+import { FormFieldType } from './type';
+export type FormFieldProps = {
+  type: FormFieldType, 
+  attr?: any
+}
 export interface IFormTemplate {
   props: {
-    formConfig?: any
+    formConfig?: any,
+    fields: Array<FormFieldProps>
   }
   state: {
 
@@ -21,7 +26,6 @@ class FormTemplate extends Component<IFormTemplate["props"], IFormTemplate["stat
     return (
       <div className='template-form-container'>
         <Form {...formConfig}>
-          
         </Form>
       </div>
     )

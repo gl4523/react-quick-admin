@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import NavBar from '../components/NavBar'
 import BreadCrumb from '../components/Breadcrumb'
+import {} from 'element-react'
 import './index.scss'
 class Layout extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Layout extends Component {
         <div className="side-container">
           <h3 className="logo-container">
             <span onClick={this.onClickLogoEvent}>
-              <i className="el-icon-setting"></i>&nbsp;React管理平台
+              React管理平台
             </span>
           </h3>
           <div className="navbar-container">
@@ -30,6 +31,9 @@ class Layout extends Component {
     )
   }
 
+  /**
+   * 点击logo事件
+   */
   onClickLogoEvent = () => {
     const {history} = this.props as any
     history.push('/login')

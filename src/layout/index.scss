@@ -43,9 +43,9 @@ $breadHeight: 40px;
     .route-cell {
       height: 100%;
       width: 100%;
-      padding-top: $breadHeight;
       box-sizing: border-box;
       padding: 0 12px;
+      padding-top: $breadHeight;
       padding-bottom: 8px;
       overflow: auto;
     }

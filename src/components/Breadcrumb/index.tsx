@@ -2,16 +2,13 @@ import React, {Component} from 'react'
 import {Breadcrumb} from 'element-react'
 import {Link, withRouter, RouteComponentProps} from 'react-router-dom'
 import './index.scss'
-interface Props {
-
-}
-@withRouter
-class BreadcrumbComp extends Component<RouteComponentProps & Props, any, any> {
+@(withRouter as any)
+class BreadcrumbComp extends Component<any, any, any> {
   constructor(props) {
     super(props)
-    console.log(arguments)
   }
   render() {
+    const {} = this.props as RouteComponentProps
     return (
       <div className="breadcrumb-container">
         <Breadcrumb style={{display: "table-cell", verticalAlign: "middle"}}>
