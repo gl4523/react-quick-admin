@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {Input, Form, Button, Message} from 'element-react'
+import Loading from '../../components/Loading'
 import './index.scss'
 
 interface ILoginPage {
@@ -51,9 +52,11 @@ class LoginPage extends Component<any, ILoginPage["state"]> {
   }
 
   onClickLoginBtn = () => {
-    axios.get('/static/img.jpg').then(data => {
-      console.log(data)
-    })
+    // axios.get('/static/img.jpg').then(data => {
+    //   console.log(data)
+    // })
+    console.log(Loading)
+    Loading.show()
   }
 
   getInputChangeCallback = (key: string) => {

@@ -48,6 +48,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   mode: isProd ? 'production' : 'development',
+  devtool: isProd ? false : 'eval-source-map',
   devServer: isProd ? {} : {
     hot: true,
     inline: true,

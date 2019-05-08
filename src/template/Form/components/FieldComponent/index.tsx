@@ -6,18 +6,18 @@ import {
   Radio,
   Select
 } from 'element-react'
-import { FormFieldProps } from '../..';
+import { FormFieldProps } from '../../index';
 import { FormFieldType } from '../../type';
 class FieldComponent extends Component<FormFieldProps> {
   render() {
-    const {type, attr = {}} = this.props
+    const {type, itemAttr = {}} = this.props
     const Comp = this.getComponentByType(type) as any
     if (!Comp) {
       throw new Error('Unsupported component types')
     }
     return (
       <>
-        <Comp {...attr} />
+        <Comp {...itemAttr} />
       </>
     )
   }
