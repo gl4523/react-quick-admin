@@ -4,11 +4,16 @@ import './index.scss'
 import { FormFieldType } from './type'
 import FieldComponent from './components/FieldComponent'
 export type FormFieldProps = {
+  // 字段组件类型
   type: FormFieldType, 
-  require?: boolean,
-  label?: string,
+  // 字段名
+  name: string,
+  // 字段属性
   fieldAttr?: any,
-  itemAttr?: any
+  // Form.item 属性
+  itemAttr?: any,
+  // 组件配置
+  options?: any
 }
 export interface IFormTemplate {
   props: {
@@ -49,9 +54,9 @@ class FormTemplate extends Component<IFormTemplate["props"], IFormTemplate["stat
    * 打包为表单结构
    */
   formPack = (field: FormFieldProps, packEl: JSX.Element): JSX.Element => {
-    const {label, require} = field
+    const fieldConf = field.itemAttr || {}
     return (
-      <Form.Item label={label || ''} required={require}>
+      <Form.Item {...fieldConf}>
         {packEl}
       </Form.Item>
     )

@@ -4,13 +4,8 @@ import {Input, Form, Button, Message} from 'element-react'
 import Loading from '../../components/Loading'
 import './index.scss'
 
-interface ILoginPage {
-  state: {
 
-  }
-}
-
-class LoginPage extends Component<any, ILoginPage["state"]> {
+class LoginPage extends Component {
   state = {
     username: '',
     password: ''
