@@ -1,13 +1,9 @@
 import React, {Component} from 'react'
-import {
-  Input,
-  InputNumber,
-  Checkbox,
-  Radio,
-  Select
-} from 'element-react'
-import { FormFieldProps } from '../../index';
-import { FormFieldType } from '../../type';
+import InputComp from '../../../../components/Field/Input'
+import CheckBoxComp from '../../../../components/Field/CheckBox'
+import SelectComp from '../../../../components/Field/Select'
+import RadioComp from '../../../../components/Field/Radio'
+import { FormFieldProps, FormFieldType } from '../../../../core';
 class FieldComponent extends Component<FormFieldProps> {
   render() {
     const {type, itemAttr = {}} = this.props
@@ -29,15 +25,14 @@ class FieldComponent extends Component<FormFieldProps> {
   getComponentByType(type: FormFieldType) {
     switch(type) {
       case "Input":
-        return Input
-      case "Checkbox":
-        return Checkbox
       case "InputNumber":
-        return InputNumber
+        return InputComp
+      case "Checkbox":
+        return CheckBoxComp
       case "Radio":
-        return Radio
+        return SelectComp
       case "Select":
-        return Select
+        return RadioComp
     }
   }
 }
