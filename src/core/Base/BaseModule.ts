@@ -9,6 +9,8 @@ export interface IBaseModule {
   type?: 'table' | 'form' | null
   // 字段
   fields?: FormFieldProps[]
+  // 装饰器
+  decorator?: React.Component
 }
 
 
