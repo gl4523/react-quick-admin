@@ -4,11 +4,17 @@ import User from '../pages/user'
 export default [{
   type: $$ROUTEGROUPITEM,
   name: '表单模式',
-  path:　'formtype',
+  path:　'/formtype',
   childern: [{
     type: $$ROUTEITEM,
     name: '用户管理',
-    path: 'user',
+    path: '/user',
+    component: User
+  }, 
+  {
+    type: $$ROUTEITEM,
+    name: '用户管理',
+    path: '/user2',
     component: User
   }]
 }]
