@@ -1,15 +1,14 @@
 import React, {Component} from 'react'
 import {Input, InputNumber} from 'element-react'
-import { FormFieldProps } from '../../template/Form'
-import { FormFieldType } from '../../template/Form/type'
+import { FormFieldType, FormFieldProps } from '../../core'
 
 class InputComp extends Component<FormFieldProps> {
   render() {
-    const {type, fieldAttr} = this.props
+    const {type, itemAttr} = this.props
     let Comp = this.getRenderComp(type) as any
     return (
       <>
-        {Comp && <Comp {...fieldAttr}></Comp>}
+        {Comp && <Comp {...itemAttr}></Comp>}
       </>
     )
   }

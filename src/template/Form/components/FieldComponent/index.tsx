@@ -13,7 +13,7 @@ class FieldComponent extends Component<FormFieldProps> {
     }
     return (
       <>
-        <Comp {...itemAttr} />
+        <Comp {...this.props} />
       </>
     )
   }

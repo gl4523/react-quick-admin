@@ -20,5 +20,9 @@ class BreadcrumbComp extends Component<any, any, any> {
       </div>
     )
   }
+
+  private getBreadcurmbItem() {
+
+  }
 }
 export default BreadcrumbComp

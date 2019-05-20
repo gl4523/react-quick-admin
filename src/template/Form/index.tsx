@@ -43,9 +43,9 @@ class FormTemplate extends Component<IFormTemplate["props"], IFormTemplate["stat
    * 打包为表单结构
    */
   formPack = (field: FormFieldProps, packEl: JSX.Element): JSX.Element => {
-    const fieldConf = field.itemAttr || {}
+    const fieldConf = field.fieldAttr || {}
     return (
-      <Form.Item {...fieldConf}>
+      <Form.Item {...fieldConf} key={field.name} label={field.name}>
         {packEl}
       </Form.Item>
     )

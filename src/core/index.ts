@@ -1,8 +1,8 @@
 import BaseModule from './Base/BaseModule'
-import {FormFieldType, FormFieldProps} from './type'
-
+import {FormFieldProps, FormFieldType, IBaseModule} from './type'
 export {
   BaseModule,
   FormFieldType,
-  FormFieldProps
+  FormFieldProps,
+  IBaseModule
 }

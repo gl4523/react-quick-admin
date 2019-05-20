@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import { BaseModule } from '..';
+import { BaseModule, IBaseModule } from '..'
 import {CheckAndThrowError} from '../../utils'
-import { IBaseModule } from '../Base/BaseModule'
 import FormTemplate from '../../template/Form'
 export interface IRenderCoreProps {
   cls: new<T extends BaseModule>() => T
@@ -9,18 +8,20 @@ export interface IRenderCoreProps {
 class RenderCore extends Component<IRenderCoreProps> {
   /**渲染模板 */
   private _renderModule: IBaseModule
+
   constructor(props) {
     super(props)
     const {cls} = this.props
     CheckAndThrowError("cls参数必须继承于BaseModule", cls instanceof BaseModule)
     this._renderModule = new cls().render()
   }
+
   render() {
-    const {fields = []} = this._renderModule
-    let templateComp = this.getTemplate(this._renderModule.type);
+    const {fields = [], typeConf = {}} = this._renderModule
+    let templateComp = this.getTemplate(this._renderModule.type)
     return (
       <>
-        {templateComp instanceof FormTemplate && <FormTemplate fields={fields}/>}
+        {templateComp === FormTemplate && <FormTemplate fields={fields} formConfig={typeConf}/>}
       </>
     )
   }
